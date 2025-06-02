@@ -4,7 +4,7 @@ import App from './app.vue'
 import {PrimeVue} from '@primevue/core';
 import 'primeflex/primeflex.css';
 import 'primeicons/primeicons.css';
-import Material from '@primeuix/themes/material';
+import Aura from '@primeuix/themes/aura';
 import {
     Button,
     Card,
@@ -15,7 +15,9 @@ import {
     Dialog, DialogService, Drawer,
     FileUpload, FloatLabel, IconField, InputIcon, InputNumber, InputText, Menu, Rating, Row,
     Select,
-    SelectButton, Tag, Textarea, Toast, ToastService, Toolbar
+    SelectButton, Tag, Textarea, Toast, ToastService, Toolbar,
+    Badge,
+    Listbox
 } from "primevue";
 import i18n from "./i18n.js";
 import router from "./router/index.js";
@@ -23,7 +25,7 @@ import router from "./router/index.js";
 createApp(App)
     .use(i18n)
     .use(router)
-    .use(PrimeVue, { theme: { preset: Material}, ripple: true})
+    .use(PrimeVue, { theme: { preset: Aura, ripple: true, options:{darkModeSelector: false}}})
     .use(ConfirmationService)
     .use(DialogService)
     .use(ToastService)
@@ -35,6 +37,7 @@ createApp(App)
     .component('pv-data-table', DataTable)
     .component('pv-dialog', Dialog)
     .component('pv-select', Select)
+    .component('pv-badge', Badge)
     .component('pv-select-button', SelectButton)
     .component('pv-file-upload', FileUpload)
     .component('pv-float-label', FloatLabel)
@@ -47,6 +50,7 @@ createApp(App)
     .component('pv-row', Row)
     .component('pv-drawer', Drawer)
     .component('pv-tag', Tag)
+    .component('pv-list-box', Listbox)
     .component('pv-textarea', Textarea)
     .component('pv-toolbar', Toolbar)
     .component('pv-toast', Toast)

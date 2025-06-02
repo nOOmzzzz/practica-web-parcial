@@ -1,12 +1,250 @@
 {
-  "Bounded": [
+  "hotels": [
     {
       "id": 1,
-      "name": "Hola"
+      "name": "Hotel Cheraton Center",
+      "address": "Calle Gran Vía 123, Lima",
+      "email": "info@hotelmc.com",
+      "phone": "+34900111222",
+      "status": "active",
+      "createdAt": "2024-01-10T08:00:00",
+      "adminId": 3
     },
     {
       "id": 2,
-      "name": "Practica PC1"
+      "name": "Barcelona Beach Resort",
+      "address": "Paseo Marítimo 45, Barcelona",
+      "email": "info@barcelonabeach.com",
+      "phone": "+34900333444",
+      "status": "active",
+      "createdAt": "2024-02-15T10:30:00",
+      "adminId": 6
+    }
+  ],
+  "subscriptionPlans": [
+    {
+      "id": 1,
+      "name": "Premium",
+      "maxRooms": 200,
+      "maxStaff": 50,
+      "maxIotDevices": 500,
+      "price": 999.99,
+      "currency": "USD"
+    },
+    {
+      "id": 2,
+      "name": "Basic",
+      "maxRooms": 100,
+      "maxStaff": 20,
+      "maxIotDevices": 250,
+      "price": 499.99,
+      "currency": "USD"
+    }
+  ],
+  "hotelSubscriptions": [
+    {
+      "id": 1,
+      "hotelId": 1,
+      "subscriptionPlanId": 1,
+      "status": "active",
+      "startDate": "2024-01-10T08:00:00",
+      "endDate": "2025-01-10T08:00:00"
+    },
+    {
+      "id": 2,
+      "hotelId": 2,
+      "subscriptionPlanId": 2,
+      "status": "active",
+      "startDate": "2024-02-15T10:30:00",
+      "endDate": "2025-02-15T10:30:00"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "hotelId": 1,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "email": "juan.perez@email.com",
+      "password": "juan123",
+      "phone": "+34600123456",
+      "role": "guest",
+      "createdAt": "2025-01-15T10:30:00"
+    },
+    {
+      "id": 2,
+      "hotelId": 1,
+      "firstName": "María",
+      "lastName": "González",
+      "email": "maria.gonzalez@email.com",
+      "password": "maria123",
+      "phone": "+34600789012",
+      "role": "guest",
+      "createdAt": "2025-02-02T14:15:00"
+    }
+  ],
+  "rooms": [
+    {
+      "id": 101,
+      "hotelId": 1,
+      "number": "101",
+      "type": "Suite Presidential",
+      "status": "available",
+      "price": 300,
+      "floor": 1
+    },
+    {
+      "id": 102,
+      "hotelId": 1,
+      "number": "102",
+      "type": "Deluxe Twin",
+      "status": "occupied",
+      "price": 180,
+      "floor": 1
+    }
+  ],
+  "roomIotDevices": [
+    {
+      "id": 1,
+      "roomId": 101,
+      "iotDeviceId": 1
+    },
+    {
+      "id": 2,
+      "roomId": 101,
+      "iotDeviceId": 2
+    }
+  ],
+  "iotDevices": [
+    {
+      "id": 1,
+      "name": "Temperature Sensor",
+      "type": "sensor",
+      "deviceType": "climate",
+      "roomId": 101,
+      "status": "online"
+    },
+    {
+      "id": 2,
+      "name": "Smart Light",
+      "type": "actuator",
+      "deviceType": "lighting",
+      "roomId": 101,
+      "status": "online"
+    }
+  ],
+  "bookings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 101,
+      "checkInDate": "2025-05-01T14:00:00",
+      "checkOutDate": "2025-05-05T12:00:00",
+      "status": "active",
+      "totalPrice": 480,
+      "paymentStatus": "paid"
+    }
+  ],
+  "serviceRequests": [
+    {
+      "id": 1,
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 101,
+      "type": "Limpieza",
+      "description": "Necesito toallas adicionales",
+      "status": "In process",
+      "priority": "normal",
+      "createdAt": "2025-05-02T09:15:00",
+      "assignedTo": 5,
+      "completedAt": null,
+      "history": [
+        {
+          "timestamp": "2025-06-01T22:00:04.578Z",
+          "action": "Assigned",
+          "changedBy": 5,
+          "notes": "Task assigned to the personal 5"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "hotelId": 1,
+      "roomId": 101,
+      "type": "Reparación",
+      "description": "",
+      "status": "Resolved",
+      "priority": "Urgente",
+      "createdAt": "2025-06-01T22:01:23.982Z",
+      "assignedTo": 4,
+      "completedAt": "2025-06-02T21:38:27.996Z",
+      "history": [
+        {
+          "timestamp": "2025-06-01T22:01:27.920Z",
+          "action": "Assigned",
+          "changedBy": 4,
+          "notes": "Task assigned to the personal 4"
+        },
+        {
+          "timestamp": "2025-06-02T21:38:27.996Z",
+          "action": "Completed",
+          "changedBy": 4,
+          "notes": "The task has been completed"
+        }
+      ]
+    }
+  ],
+  "userDevicePreferences": [
+    {
+      "id": 1,
+      "userId": 1,
+      "deviceId": 2,
+      "customName": "My Reading Light",
+      "overrides": {
+        "brightness": 85,
+        "color": "cool"
+      },
+      "lastUpdated": "2025-05-10T08:30:00Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "userId": 1,
+      "title": "Toallas enviadas",
+      "message": "Se han entregado las toallas adicionales a tu habitación.",
+      "type": "info",
+      "read": false,
+      "createdAt": "2025-05-02T09:30:00"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "title": "Mantenimiento iniciado",
+      "message": "El técnico ha llegado a revisar el aire acondicionado.",
+      "type": "alert",
+      "read": true,
+      "createdAt": "2025-05-02T11:00:00"
+    }
+  ],
+  "feedback": [
+    {
+      "id": 1,
+      "userId": 1,
+      "hotelId": 1,
+      "rating": 4.5,
+      "comment": "Excelente servicio, muy buena atención.",
+      "createdAt": "2025-05-06T10:00:00"
+    },
+    {
+      "id": 2,
+      "userId": 2,
+      "hotelId": 1,
+      "rating": 4,
+      "comment": "Habitación limpia, aunque la cama era un poco dura.",
+      "createdAt": "2025-05-08T12:30:00"
     }
   ]
 }

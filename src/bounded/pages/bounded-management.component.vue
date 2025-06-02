@@ -4,10 +4,11 @@ import {Bounded} from "../model/bounded.entity.js";
 import {BoundedService} from "../services/bounded.service.js";
 import DataManager from "../../shared/components/data-manager.component.vue";
 import CategoryItemCreateAndEditDialog from "../components/bounded-item-create-and-edit.component.vue";
+import {Column as PvColumn} from "primevue";
 
 export default {
   name: "bounded-management",
-  components: {DataManager, CategoryItemCreateAndEditDialog},
+  components: {PvColumn, DataManager, CategoryItemCreateAndEditDialog},
 
   data(){
     return {
@@ -133,6 +134,7 @@ export default {
       <template #custom-columns>
         <pv-column :sortable="true" field="id" header="Id" style="min-width: 12rem"/>
         <pv-column :sortable="true" field="name" header="Name" style="min-width: 24rem"/>
+        <pv-column :sortable="true" field="description" header="Description" style="min-width: 24rem"/>
       </template>
     </data-manager>
     <category-item-create-and-edit-dialog
